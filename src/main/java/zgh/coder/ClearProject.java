@@ -8,14 +8,24 @@ import java.io.File;
  * @author zhangguihua
  *
  */
-public class Tool4ClearProject {
-	private static String[] delArr = {"target", ".classpath", ".project", ".settings"};
+public class ClearProject {
+	// 要清理的根目录
+	private static final String PATH = "C:/zgh/code/github";
+//	private static final String PATH = "C:/zgh/temp/7a2/_case";
+	// 要删除的目录
+	private static final String[] DEL_ARR = {
+//			"src", "pom.xml",
+//			".git", 
+//			".gitignore", "README.md", 
+			"target", ".classpath", ".project", ".settings",
+			"xxx"
+			};
+	
 	private static int total = 0;
 	private static int delNum = 0;
 	
 	public static void main(String[] args) {
-		Tool4ClearProject obj = new Tool4ClearProject();
-		obj.clearProjects("c:/zgh/code/github");
+		new ClearProject().clearProjects(PATH);
 	}
 	
 	public void clearProjects(String path) {
@@ -41,7 +51,7 @@ public class Tool4ClearProject {
 	}
 
 	private void checkOne(File sub) {
-		for(String del : delArr) {
+		for(String del : DEL_ARR) {
 			if(sub.getName().equals(del)) {
 				del(sub);
 			}
