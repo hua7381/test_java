@@ -53,26 +53,8 @@ public class ClearProject {
 	private void checkOne(File sub) {
 		for(String del : DEL_ARR) {
 			if(sub.getName().equals(del)) {
-				del(sub);
+				new Tool4File().del(sub);
 			}
-		}
-	}
-
-	private void del(File file) {
-		if(file.isDirectory() && file.listFiles().length > 0) {
-			for(File sub : file.listFiles()) {
-				del(sub);
-			}
-		}
-		System.out.println("del: "+file.getPath());
-		total += 1;
-		try {
-			boolean succes  = file.delete();
-			if(succes) {
-				delNum += 1;
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
 		}
 	}
 	

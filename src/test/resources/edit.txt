@@ -1,0 +1,13 @@
+<YHXML>
+	<JQFK version="1.0">
+		<MSGID>xxxxxxxxxx</MSGID>
+		<MSGTYPE>通用消息</MSGTYPE>
+		<MSGSENDER>统一服务</MSGSENDER>
+		<MSGRECEIVER>接处警</MSGRECEIVER>
+		<MSGSENDTIME>2020-01-01 00:00:00</MSGSENDTIME>
+		<MSGCONTENT>
+			<JJDBH>xxxxxx</JJDBH>
+			<CONTENT>申请修改警情性质::{userNo: 'zgh', userName: "张桂华", charaNo: "警情性质代码", charaName: "警情性质名称", reason: "申请修改的原因描述"}</CONTENT>
+		</MSGCONTENT>
+	</JQFK>
+</YHXML>
