@@ -16,33 +16,79 @@ public class CopyProject {
 	public static void main(String[] args) {
 		CopyProject obj = new CopyProject();
 
-		String tar = "c:/_temp/copy";
+		String tar = "c:/t/copy";
 		new Tool4File().del(new File(tar));
 
-		obj.copy("c:/zgh/code/_case/ms-case-base", tar+"/_case/ms-case-base");
-		obj.copy("c:/zgh/code/_case/ms-caseDispatch", tar+"/_case/ms-caseDispatch");
-		obj.copy("c:/zgh/code/_case/ms-caseNotify", tar+"/_case/ms-caseNotify");
-		obj.copy("c:/zgh/code/_case/ms-caseQuery", tar+"/_case/ms-caseQuery");
-		obj.copy("c:/zgh/code/_case/ms-caseReply", tar+"/_case/ms-caseReply");
-		obj.copy("c:/zgh/code/ms-synergy", tar+"/ms-synergy");
-		obj.copy("c:/zgh/code/ms-caseCreator", tar+"/ms-caseCreator");
-		
-		obj.copy("c:/zgh/code/kc-login-api", tar+"/kc-login-api");
-		obj.copy("c:/zgh/code/kc-cjzd", tar+"/kc-cjzd");
-		obj.copy("c:/zgh/code/ms-file", tar+"/ms-file");
-		obj.copy("c:/zgh/code/kc-monitor-api", tar+"/kc-monitor-api");
-		obj.copy("c:/zgh/code/sz-cjzd", tar+"/sz-cjzd");
-		obj.copy("c:/zgh/code/ms-chat-api", tar+"/ms-chat-api");
+		// 示例
+		//obj.copy("c:/zgh/code/_case/ms-case-base", tar+"/_case/ms-case-base");
 
+		obj.copy("c:/zgh/code/ic-base", tar+"/ic-base");
+		obj.copy("c:/zgh/code/ic-resource", tar+"/ic-resource");
+		
+		obj.copy("c:/zgh/code/_ic_api/ic-home-api", tar+"/ic-home-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-home-ui", tar+"/ic-home-ui");
+
+		obj.copy("c:/zgh/code/_ic_api/ic-coop-api", tar+"/ic-coop-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-coop-ui", tar+"/ic-coop-ui");
+
+		obj.copy("c:/zgh/code/_ic_api/ic-focus-api", tar+"/ic-focus-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-focus-ui", tar+"/ic-focus-ui");
+
+		obj.copy("c:/zgh/code/_ic_api/ic-refine-api", tar+"/ic-refine-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-refine-ui", tar+"/ic-refine-ui");
+
+		obj.copy("c:/zgh/code/_ic_api/ic-situation-api", tar+"/ic-situation-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-situation-ui", tar+"/ic-situation-ui");
+
+		obj.copy("c:/zgh/code/_ic_api/ic-report-api", tar+"/ic-report-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-report-ui", tar+"/ic-report-ui");
+
+		obj.copy("c:/zgh/code/_ic_api/ic-analyse-api", tar+"/ic-analyse-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-analyse-ui", tar+"/ic-analyse-ui");
+
+		obj.copy("c:/zgh/code/_ic_api/ic-doc-api", tar+"/ic-doc-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-doc-ui", tar+"/ic-doc-ui");
+
+		obj.copy("c:/zgh/code/_ic_api/ic-outerdata", tar+"/ic-outerdata");
+		obj.copy("c:/zgh/code/_ic_api/ic-stat", tar+"/ic-stat");
+
+		obj.copy("c:/zgh/code/ic-report-m-api", tar+"/ic-report-m-api");
+		obj.copy("c:/zgh/code/ic-report-m-ui", tar+"/ic-report-m-ui");
+		obj.copy("c:/zgh/code/ic-focus-m-ui", tar+"/ic-focus-m-ui");
+
+		obj.copy("c:/zgh/code/ms-login2-api", tar+"/ms-login2-api");
+		obj.copy("c:/zgh/code/ms-login2-ui", tar+"/ms-login2-ui");
+		obj.copy("c:/zgh/code/ms-netty", tar+"/ms-netty");
+		obj.copy("c:/zgh/code/ms-file", tar+"/ms-file");
+		
+		obj.copy("c:/zgh/code/kc-cjzd", tar+"/kc-cjzd");
+		obj.copy("c:/zgh/code/_case/ms-case-base", tar+"/ms-case-base");
+		obj.copy("c:/zgh/code/_case/ms-caseDispatch", tar+"/ms-caseDispatch");
+		obj.copy("c:/zgh/code/_case/ms-caseNotify", tar+"/ms-caseNotify");
+		obj.copy("c:/zgh/code/_case/ms-caseQuery", tar+"/ms-caseQuery");
+		obj.copy("c:/zgh/code/_case/ms-caseReply", tar+"/ms-caseReply");
 	}
 
 	private void copy(String sourceDir, String targetDir) {
 		System.out.println("copy: "+sourceDir+" -> \n"+targetDir);
+		if(!new File(sourceDir).exists()) {
+			System.out.println("项目不存在: " + sourceDir);
+			return;
+		}
 		(new File(targetDir)).mkdirs();
 
 		try {
 			copyDir(sourceDir+"/src", targetDir+"/src");
+			copyDir(sourceDir+"/public", targetDir+"/public");
+
 			copyFile(new File(sourceDir+"/pom.xml"), new File(targetDir+"/pom.xml"));
+			copyFile(new File(sourceDir+"/README.md"), new File(targetDir+"/README.md"));
+			
+			copyFile(new File(sourceDir+"/babel.config.js"), new File(targetDir+"/babel.config.js"));
+			copyFile(new File(sourceDir+"/package.json"), new File(targetDir+"/package.json"));
+			copyFile(new File(sourceDir+"/vue.config.js"), new File(targetDir+"/vue.config.js"));
+			copyFile(new File(sourceDir+"/yarn.lock"), new File(targetDir+"/yarn.lock"));
+
 			System.out.println("ok");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -52,6 +98,10 @@ public class CopyProject {
 
 	// 复制文件夹
 	private void copyDir(String sourceDir, String targetDir) throws IOException {
+		if(! new File(sourceDir).exists()) {
+			return;
+		}
+
 		// 新建目标目录
 		(new File(targetDir)).mkdirs();
 		// 获取源文件夹当前下的文件或目录
@@ -75,6 +125,9 @@ public class CopyProject {
 	}
 
 	private void copyFile(File sourceFile, File targetFile) throws IOException {
+		if(!sourceFile.exists()) {
+			return;
+		}
 		// 新建文件输入流并对它进行缓冲
 		FileInputStream input = new FileInputStream(sourceFile);
 		BufferedInputStream inBuff = new BufferedInputStream(input);
