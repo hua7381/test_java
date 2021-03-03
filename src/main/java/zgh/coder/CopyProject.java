@@ -21,52 +21,59 @@ public class CopyProject {
 
 		// 示例
 		//obj.copy("c:/zgh/code/_case/ms-case-base", tar+"/_case/ms-case-base");
+		// obj.copy("c:/zgh/code/ic-resource", tar+"/ic-resource");
 
-		obj.copy("c:/zgh/code/ic-base", tar+"/ic-base");
-		obj.copy("c:/zgh/code/ic-resource", tar+"/ic-resource");
+
+
+
+		obj.copy("c:/zgh/code/_ic_api/ic-base", tar+"/_ic_api/ic-base");
 		
-		obj.copy("c:/zgh/code/_ic_api/ic-home-api", tar+"/ic-home-api");
-		obj.copy("c:/zgh/code/_ic_ui/ic-home-ui", tar+"/ic-home-ui");
+		obj.copy("c:/zgh/code/_ic_api/ic-home-api", tar+"/_ic_api/ic-home-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-home-ui", tar+"/_ic_ui/ic-home-ui");
 
-		obj.copy("c:/zgh/code/_ic_api/ic-coop-api", tar+"/ic-coop-api");
-		obj.copy("c:/zgh/code/_ic_ui/ic-coop-ui", tar+"/ic-coop-ui");
+		obj.copy("c:/zgh/code/_ic_api/ic-coop-api", tar+"/_ic_api/ic-coop-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-coop-ui", tar+"/_ic_ui/ic-coop-ui");
 
-		obj.copy("c:/zgh/code/_ic_api/ic-focus-api", tar+"/ic-focus-api");
-		obj.copy("c:/zgh/code/_ic_ui/ic-focus-ui", tar+"/ic-focus-ui");
+		obj.copy("c:/zgh/code/_ic_api/ic-focus-api", tar+"/_ic_api/ic-focus-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-focus-ui", tar+"/_ic_ui/ic-focus-ui");
 
-		obj.copy("c:/zgh/code/_ic_api/ic-refine-api", tar+"/ic-refine-api");
-		obj.copy("c:/zgh/code/_ic_ui/ic-refine-ui", tar+"/ic-refine-ui");
+		obj.copy("c:/zgh/code/_ic_api/ic-refine-api", tar+"/_ic_api/ic-refine-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-refine-ui", tar+"/_ic_ui/ic-refine-ui");
 
-		obj.copy("c:/zgh/code/_ic_api/ic-situation-api", tar+"/ic-situation-api");
-		obj.copy("c:/zgh/code/_ic_ui/ic-situation-ui", tar+"/ic-situation-ui");
+		obj.copy("c:/zgh/code/_ic_api/ic-situation-api", tar+"/_ic_api/ic-situation-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-situation-ui", tar+"/_ic_ui/ic-situation-ui");
 
-		obj.copy("c:/zgh/code/_ic_api/ic-report-api", tar+"/ic-report-api");
-		obj.copy("c:/zgh/code/_ic_ui/ic-report-ui", tar+"/ic-report-ui");
+		obj.copy("c:/zgh/code/_ic_api/ic-report-api", tar+"/_ic_api/ic-report-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-report-ui", tar+"/_ic_ui/ic-report-ui");
 
-		obj.copy("c:/zgh/code/_ic_api/ic-analyse-api", tar+"/ic-analyse-api");
-		obj.copy("c:/zgh/code/_ic_ui/ic-analyse-ui", tar+"/ic-analyse-ui");
+		obj.copy("c:/zgh/code/_ic_api/ic-analyse-api", tar+"/_ic_api/ic-analyse-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-analyse-ui", tar+"/_ic_ui/ic-analyse-ui");
 
-		obj.copy("c:/zgh/code/_ic_api/ic-doc-api", tar+"/ic-doc-api");
-		obj.copy("c:/zgh/code/_ic_ui/ic-doc-ui", tar+"/ic-doc-ui");
+		obj.copy("c:/zgh/code/_ic_api/ic-doc-api", tar+"/_ic_api/ic-doc-api");
+		obj.copy("c:/zgh/code/_ic_ui/ic-doc-ui", tar+"/_ic_ui/ic-doc-ui");
 
-		obj.copy("c:/zgh/code/_ic_api/ic-outerdata", tar+"/ic-outerdata");
-		obj.copy("c:/zgh/code/_ic_api/ic-stat", tar+"/ic-stat");
+		obj.copy("c:/zgh/code/_ic_api/ic-outerdata", tar+"/_ic_api/ic-outerdata");
+		obj.copy("c:/zgh/code/_ic_api/ic-stat", tar+"/_ic_api/ic-stat");
 
-		obj.copy("c:/zgh/code/ic-report-m-api", tar+"/ic-report-m-api");
-		obj.copy("c:/zgh/code/ic-report-m-ui", tar+"/ic-report-m-ui");
-		obj.copy("c:/zgh/code/ic-focus-m-ui", tar+"/ic-focus-m-ui");
 
-		obj.copy("c:/zgh/code/ms-login2-api", tar+"/ms-login2-api");
-		obj.copy("c:/zgh/code/ms-login2-ui", tar+"/ms-login2-ui");
-		obj.copy("c:/zgh/code/ms-netty", tar+"/ms-netty");
-		obj.copy("c:/zgh/code/ms-file", tar+"/ms-file");
+
+
+		// obj.copy("c:/zgh/code/ic-report-m-api", tar+"/ic-report-m-api");
+		// obj.copy("c:/zgh/code/ic-report-m-ui", tar+"/ic-report-m-ui");
+
+		// obj.copy("c:/zgh/code/ic-focus-m-ui", tar+"/ic-focus-m-ui");
+
+		// obj.copy("c:/zgh/code/ms-login2-api", tar+"/ms-login2-api");
+		// obj.copy("c:/zgh/code/ms-login2-ui", tar+"/ms-login2-ui");
+		// obj.copy("c:/zgh/code/ms-netty", tar+"/ms-netty");
+		// obj.copy("c:/zgh/code/ms-file", tar+"/ms-file");
 		
-		obj.copy("c:/zgh/code/kc-cjzd", tar+"/kc-cjzd");
-		obj.copy("c:/zgh/code/_case/ms-case-base", tar+"/ms-case-base");
-		obj.copy("c:/zgh/code/_case/ms-caseDispatch", tar+"/ms-caseDispatch");
-		obj.copy("c:/zgh/code/_case/ms-caseNotify", tar+"/ms-caseNotify");
-		obj.copy("c:/zgh/code/_case/ms-caseQuery", tar+"/ms-caseQuery");
-		obj.copy("c:/zgh/code/_case/ms-caseReply", tar+"/ms-caseReply");
+		// obj.copy("c:/zgh/code/kc-cjzd", tar+"/kc-cjzd");
+		// obj.copy("c:/zgh/code/_case/ms-case-base", tar+"/ms-case-base");
+		// obj.copy("c:/zgh/code/_case/ms-caseDispatch", tar+"/ms-caseDispatch");
+		// obj.copy("c:/zgh/code/_case/ms-caseNotify", tar+"/ms-caseNotify");
+		// obj.copy("c:/zgh/code/_case/ms-caseQuery", tar+"/ms-caseQuery");
+		// obj.copy("c:/zgh/code/_case/ms-caseReply", tar+"/ms-caseReply");
 	}
 
 	private void copy(String sourceDir, String targetDir) {
@@ -86,6 +93,7 @@ public class CopyProject {
 			
 			copyFile(new File(sourceDir+"/babel.config.js"), new File(targetDir+"/babel.config.js"));
 			copyFile(new File(sourceDir+"/package.json"), new File(targetDir+"/package.json"));
+			copyFile(new File(sourceDir+"/webpack.config.js"), new File(targetDir+"/webpack.config.js"));
 			copyFile(new File(sourceDir+"/vue.config.js"), new File(targetDir+"/vue.config.js"));
 			copyFile(new File(sourceDir+"/yarn.lock"), new File(targetDir+"/yarn.lock"));
 
