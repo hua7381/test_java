@@ -20,8 +20,8 @@ public class FiltFile {
 
     private class MyFilter1 implements FileFilter {
         @Override
-        public boolean accept(File pathname) {
-            return pathname.getName().startsWith("aaa");
+        public boolean accept(File file) {
+            return file.getName().startsWith("aaa") && file.lastModified() < System.currentTimeMillis();
         }
     }
     
