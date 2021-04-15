@@ -7,8 +7,14 @@ import java.util.Date;
 
 import org.junit.Test;
 
+/**
+ * 筛选文件
+ * 
+ * @author zgh
+ * @date 2021年4月15日
+ */
 public class FiltFile {
-    
+
     @Test
     public void xxx() {
         File dir = new File("c:/test");
@@ -24,5 +30,5 @@ public class FiltFile {
             return file.getName().startsWith("aaa") && file.lastModified() < System.currentTimeMillis();
         }
     }
-    
+
 }
