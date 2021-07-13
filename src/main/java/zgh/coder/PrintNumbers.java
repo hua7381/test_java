@@ -1,12 +1,13 @@
-package zgh;
+package zgh.coder;
 
-public class Test {
+public class PrintNumbers {
+
 	public static void main(String[] args) {
 		StringBuffer sb = new StringBuffer();
-		for(int i=1; i<=19; i++) {
-			sb.append(",G" + i);
+		for (int i = 1; i <= 46; i++) {
+			sb.append("," + i);
 		}
 		System.out.println(sb.toString());
-
 	}
+
 }
