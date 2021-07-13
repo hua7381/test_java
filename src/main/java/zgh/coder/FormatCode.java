@@ -1,8 +1,7 @@
 package zgh.coder;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
@@ -11,17 +10,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FormatCode {
+
+	public static void main(String[] args) {
+        String path = "C:/zgh/code/my-compare/src";
+        new FormatCode().format(new File(path));
+        System.out.println("finished");
+    }
+
     private static Set<String> set = new HashSet<String>();
     static {
         set.add("java");
         set.add("xml");
         set.add("vue");
         set.add("js");
-    }
-
-	public static void main(String[] args) {
-        String path = "C:/zgh/code/_ic_api/ic-coop-api/src";
-        new FormatCode().format(new File(path));
     }
 
     private void format(File file) {
@@ -36,7 +37,6 @@ public class FormatCode {
 
     private void handleOne(File file) {
         String ext = file.getName().substring(file.getName().lastIndexOf(".") + 1);
-        System.out.println(ext);
         if(set.contains(ext)) {
             formatOne(file);
         }
@@ -44,9 +44,12 @@ public class FormatCode {
 
     private void formatOne(File file) {
         String content = read(file);
-        content = replace(content, "[^ ][ ],", " ,", ",");
-        content = replace(content, ",[A-Za-z0-9]", ",", ", ");
+        content = replace(content, "[^ ][ ],", " ,", ","); // xxx ,
+        content = replace(content, ",[A-Za-z0-9\\(]", ",", ", ");// ,xxx
+        content = replace(content, "[^ \"] \\)", " )", ")"); // xxx )
+        content = content.replace(",  ", ", ");
         content = content.replace("if(", "if (");
+        content = content.replace("for(", "for (");
         content = content.replace("( ", "(");
         content = content.replace("){", ") {");
         content = content.replace("}else", "} else");
@@ -74,27 +77,18 @@ public class FormatCode {
     }
 
     private String read(File file) {
-        BufferedReader r = null;
-        StringBuffer sb = new StringBuffer();
+        FileInputStream fis = null;
+        Long len = file.length();
+        byte[] bytes = new byte[len.intValue()];
         try {
-            r = new BufferedReader(new FileReader(file));
-            String line = null;
-            while ((line = r.readLine()) != null) {
-                if (sb.length() > 0) {
-                    sb.append("\n");
-                }
-                sb.append(line);
-            }
+            fis = new FileInputStream(file);
+            fis.read(bytes);
+            fis.close();
+            return new String(bytes, "utf-8");
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                r.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-		}
-        return sb.toString();
+        }
+        return null;
 	}
 
 	public void write(File file, String content) {
